@@ -1,0 +1,19 @@
+{
+  "name": "food-ordering-platform",
+  "version": "1.0.0",
+  "description": "Food Ordering platform. Computing Systems Dissertation project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javokhirbozorov/food-ordering-platform.git"
+  },
+  "author": "Javokhir Bozorov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javokhirbozorov/food-ordering-platform/issues"
+  },
+  "homepage": "https://github.com/javokhirbozorov/food-ordering-platform#readme"
+}
