@@ -1,18 +1,18 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Restaurant from '../models/restaurant.js';
-const restaurantsRoutes = express.Router();
+const restaurantRoutes = express.Router();
 
 
 //*Read
 
-restaurantsRoutes.get('/', expressAsyncHandler(async(req, res)=>{
+restaurantRoutes.get('/', expressAsyncHandler(async(req, res)=>{
     const restaurant = await Restaurant.find();
 
     res.status(200).json(restaurant);
 }));
 
-restaurantsRoutes.get('/:id', expressAsyncHandler(async(req, res)=>{
+restaurantRoutes.get('/:id', expressAsyncHandler(async(req, res)=>{
     const restaurant = await Restaurant.findById(req.params.id);
 
     if(!restaurant){
@@ -24,7 +24,7 @@ restaurantsRoutes.get('/:id', expressAsyncHandler(async(req, res)=>{
 
 
 //*Crud
-restaurantsRoutes.post('/', expressAsyncHandler(async(req, res)=>{
+restaurantRoutes.post('/', expressAsyncHandler(async(req, res)=>{
     const restaurant = await new Restaurant(req.body);
 
 
@@ -46,7 +46,7 @@ restaurantsRoutes.post('/', expressAsyncHandler(async(req, res)=>{
 
 //* Update
 
-restaurantsRoutes.put('/:id', expressAsyncHandler(async(req, res)=>{
+restaurantRoutes.put('/:id', expressAsyncHandler(async(req, res)=>{
     const restaurant = await Restaurant.findById(req.params.id);
 
     if(!restaurant){
@@ -68,7 +68,7 @@ restaurantsRoutes.put('/:id', expressAsyncHandler(async(req, res)=>{
 
 //*Delete
 
-restaurantsRoutes.delete('/:id', expressAsyncHandler(async(req, res)=>{
+restaurantRoutes.delete('/:id', expressAsyncHandler(async(req, res)=>{
     const restaurant = await Restaurant.findById(req.params.id);
     if(!restaurant){
         res.status(404).json({message:'Restaurant Not Found to Delete'});
@@ -83,4 +83,4 @@ restaurantsRoutes.delete('/:id', expressAsyncHandler(async(req, res)=>{
     }
 }))
 
-export default restaurantsRoutes;
+export default restaurantRoutes;
