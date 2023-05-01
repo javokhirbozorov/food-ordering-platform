@@ -1,19 +1,19 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/order.js';
-const ordersRoutes = express.Router();
+const orderRoutes = express.Router();
 
 
 
 //*Read
 
-ordersRoutes.get('/', expressAsyncHandler(async(req, res)=>{
+orderRoutes.get('/', expressAsyncHandler(async(req, res)=>{
     const order = await Order.find();
 
     res.status(200).json(order);
 }));
 
-ordersRoutes.get('/:id', expressAsyncHandler(async(req, res)=>{
+orderRoutes.get('/:id', expressAsyncHandler(async(req, res)=>{
     const order = await Order.findById(req.params.id);
 
     if(!Order){
@@ -25,7 +25,7 @@ ordersRoutes.get('/:id', expressAsyncHandler(async(req, res)=>{
 
 
 //*Crud
-ordersRoutes.post('/', expressAsyncHandler(async(req, res)=>{
+orderRoutes.post('/', expressAsyncHandler(async(req, res)=>{
     const order = await new Order(req.body);
 
 
@@ -47,7 +47,7 @@ ordersRoutes.post('/', expressAsyncHandler(async(req, res)=>{
 
 //* Update
 
-ordersRoutes.put('/:id', expressAsyncHandler(async(req, res)=>{
+orderRoutes.put('/:id', expressAsyncHandler(async(req, res)=>{
     const order = await Order.findById(req.params.id);
 
     if(!Order){
@@ -69,7 +69,7 @@ ordersRoutes.put('/:id', expressAsyncHandler(async(req, res)=>{
 
 //*Delete
 
-ordersRoutes.delete('/:id', expressAsyncHandler(async(req, res)=>{
+orderRoutes.delete('/:id', expressAsyncHandler(async(req, res)=>{
     const order = await Order.findById(req.params.id);
     if(!Order){
         res.status(404).json({message:'Order Not Found to Delete'});
@@ -85,4 +85,4 @@ ordersRoutes.delete('/:id', expressAsyncHandler(async(req, res)=>{
 }))
 
 
-export default ordersRoutes;
+export default orderRoutes;

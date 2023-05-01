@@ -4,10 +4,10 @@ import expressAsyncHandler from 'express-async-handler';
 
 
 
-const mealsRoutes = express.Router();
+const mealRoutes = express.Router();
 
 // Get all meals
-mealsRoutes.get(
+mealRoutes.get(
   '/',
   expressAsyncHandler(async (req, res) => {
     const meals = await Meal.find();
@@ -16,7 +16,7 @@ mealsRoutes.get(
 );
 
 // Get a specific meal
-mealsRoutes.get(
+mealRoutes.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {
     const meal = await Meal.findById(req.params.id);
@@ -29,7 +29,7 @@ mealsRoutes.get(
 );
 
 // Create a new meal
-mealsRoutes.post(
+mealRoutes.post(
   '/',
   expressAsyncHandler(async (req, res) => {
     const meal = new Meal(req.body);
@@ -44,7 +44,7 @@ mealsRoutes.post(
 );
 
 // Update a meal
-mealsRoutes.put(
+mealRoutes.put(
   '/:id',
   expressAsyncHandler(async (req, res) => {
     const meal = await Meal.findById(req.params.id);
@@ -67,7 +67,7 @@ mealsRoutes.put(
 );
 
 // Delete a meal
-mealsRoutes.delete(
+mealRoutes.delete(
   '/:id',
   expressAsyncHandler(async (req, res) => {
     const meal = await Meal.findById(req.params.id);
@@ -86,4 +86,4 @@ mealsRoutes.delete(
   })
 );
 
-export default mealsRoutes;
+export default mealRoutes;

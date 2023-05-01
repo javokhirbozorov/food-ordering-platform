@@ -1,7 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/user.js';
-const usersRoutes = express.Router();
+const userRoutes = express.Router();
 
 
 
@@ -9,7 +9,7 @@ const usersRoutes = express.Router();
 
 //*CREATE
 
-usersRoutes.post('/', expressAsyncHandler(async(req, res)=>{
+userRoutes.post('/', expressAsyncHandler(async(req, res)=>{
 
     const user = await new User(req.body)
 
@@ -25,14 +25,14 @@ usersRoutes.post('/', expressAsyncHandler(async(req, res)=>{
 
 //* Read
 
-usersRoutes.get('/', expressAsyncHandler(async(req, res)=>{
+userRoutes.get('/', expressAsyncHandler(async(req, res)=>{
     
     const users = await User.find()
     res.status(200).json(users);
 
 }))
 
-usersRoutes.get('/:', expressAsyncHandler(async(req,res)=>{
+userRoutes.get('/:', expressAsyncHandler(async(req,res)=>{
     const user = await User.findById(req.params.id)
 
     if(!user){
@@ -47,7 +47,7 @@ usersRoutes.get('/:', expressAsyncHandler(async(req,res)=>{
 
 //*Update
 
-usersRoutes.put('/:', expressAsyncHandler(async(req, res)=>{
+userRoutes.put('/:', expressAsyncHandler(async(req, res)=>{
 
 const user = await User.findById(req.params.id)
 
@@ -70,7 +70,7 @@ try{
 
 //* Delete
 
-usersRoutes.put('/:', expressAsyncHandler(async(req, res)=>{
+userRoutes.put('/:', expressAsyncHandler(async(req, res)=>{
     
     const user = await User.findById(req.params.id);
 
@@ -89,4 +89,4 @@ usersRoutes.put('/:', expressAsyncHandler(async(req, res)=>{
 
 }))
 
-export default usersRoutes;
+export default userRoutes;
