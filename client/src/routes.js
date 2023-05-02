@@ -8,8 +8,7 @@ import Page404 from './pages/Page404';
 
 // Admin pages
 
-// Restaurant pages
-import RestaurantMainPage from './pages/restaurant-pages/Main';
+// User pages
 
 // ----------------------------------------------------------------------
 
@@ -31,7 +30,7 @@ export default function Router() {
       element: <SimpleLayout />,
       children: [
         { element: <Navigate to="/main" />, index: true },
-        { path: '/main', element: <RestaurantMainPage /> },
+        { path: '/main', element: <div>Food Ordering Platform</div> },
       ],
     },
     {
