@@ -43,7 +43,7 @@ export default function Nav({ openNav, onCloseNav }) {
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        Logo
+        Food Ordering Platform
         {/* <Logo /> */}
       </Box>
 

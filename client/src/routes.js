@@ -7,6 +7,10 @@ import SimpleLayout from './layouts/simple';
 import Page404 from './pages/Page404';
 
 // Admin pages
+import Customers from './pages/admin-pages/Customers';
+import StockLevel from './pages/admin-pages/StockLevel';
+import OpeningHours from './pages/admin-pages/OpeningHours';
+import MenuPage from './pages/admin-pages/MenuPage';
 
 // User pages
 
@@ -19,10 +23,10 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/menu" />, index: true },
-        { path: 'menu', element: <div>Menu</div> },
-        { path: 'stock-level', element: <div>Stock Level</div> },
-        { path: 'opening-hours', element: <div>Opening Hours</div> },
-        { path: 'customers', element: <div>Customers</div> },
+        { path: 'menu', element: <MenuPage /> },
+        { path: 'stock-level', element: <StockLevel /> },
+        { path: 'opening-hours', element: <OpeningHours /> },
+        { path: 'customers', element: <Customers /> },
       ],
     },
     {
